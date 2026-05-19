@@ -1,6 +1,8 @@
 # Anki Last Ease Highlight Add-on
-
 Anki add-on that highlights the answer button you pressed **last time** for each card during review.
+
+## What is Anki to those who did not know
+Anki is a flashcard app that uses spaced repetition to help you memorize information efficiently.
 
 ## How it works
 - **First time** seeing a card → no highlight
@@ -17,9 +19,12 @@ If you pressed **Again (1)** on a card yesterday, today the Again button will be
 ## Installation
 
 ### Manual
-1. Clone or download this repo
-2. Copy `anki-last-ease-highlight-addon` folder to Anki addons:
-   - Windows: `%APPDATA%\Anki2\addons21\`
-   - Mac: `~/Library/Application Support/Anki2/addons21/`
-   - Linux: `~/.local/share/Anki2/addons21/`
-3. Restart Anki
+1. Download `__init__.py` from this repo
+2. Open your Anki add-ons folder:
+   - **Windows:** `%APPDATA%\Anki2\addons21\`
+   - **Mac:** `~/Library/Application Support/Anki2/addons21/`
+   - **Linux:** `~/.local/share/Anki2/addons21/`
+3. Create a new folder named `anki-last-ease-highlight-addon`
+4. Copy `__init__.py` into that folder
+5. Restart Anki
+
