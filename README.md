@@ -28,3 +28,7 @@ If you pressed **Again (1)** on a card yesterday, today the Again button will be
 4. Copy `__init__.py` into that folder
 5. Restart Anki
 
+## Screenshots
+![screenshot](screenshots/with.png)
+
+![screenshot](screenshots/without-or-first-time.png)
