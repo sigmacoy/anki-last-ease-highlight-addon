@@ -29,6 +29,7 @@ If you pressed **Again (1)** on a card yesterday, today the Again button will be
 5. Restart Anki
 
 ## Screenshots
+### With the Add-on
 ![screenshot](screenshots/with.png)
-
+### Without the Add-on or First time opening this card.
 ![screenshot](screenshots/without-or-first-time.png)
