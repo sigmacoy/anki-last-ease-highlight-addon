@@ -4,14 +4,20 @@ from PyQt6.QtCore import QTimer
 
 original_show_answer = Reviewer._showAnswer
 
+
 def custom_show_answer(self, *args, **kwargs):
     result = original_show_answer(self, *args, **kwargs)
 
     def highlight_button():
+        # card may be None when deck is finished / reviewer closes
+        if not getattr(self, "card", None):
+            return
+
+        cid = self.card.id
 
         rows = mw.col.db.execute(
             "SELECT ease FROM revlog WHERE cid = ? ORDER BY id DESC LIMIT 1",
-            self.card.id
+            cid,
         )
 
         if not rows:
@@ -29,17 +35,19 @@ def custom_show_answer(self, *args, **kwargs):
             }}
         }}
 
-        // run multiple times because Anki re-renders DOM
         highlight();
         setTimeout(highlight, 200);
         setTimeout(highlight, 500);
         setTimeout(highlight, 1000);
         """
 
-        self.bottom.web.page().runJavaScript(js)
+        # extra safety: web may also be gone when deck ends
+        if hasattr(self, "bottom") and self.bottom and self.bottom.web:
+            self.bottom.web.page().runJavaScript(js)
 
     QTimer.singleShot(300, highlight_button)
 
     return result
+
 
 Reviewer._showAnswer = custom_show_answer
